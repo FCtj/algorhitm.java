@@ -1,1 +1,21 @@
 
+public class ex1 {
+  static final int[] d = {5,6};
+	public static void main(String[] args) {
+		
+		System.out.println("taejun");
+		System.out.println(gidF(4,4));
+	}
+  
+   
+    
+  public static int gidF(int n,int m){
+  	if(n==1&&m==1)
+      return 1;
+    else if((n<=d[0]&&m<=d[1])&&(n>0 && m>0))
+      return gidF(n-1,m) + gidF(n,m-1);
+	  else 
+      //System.out.println("0");
+      return 0;    	
+  }
+}
