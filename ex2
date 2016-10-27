@@ -4,9 +4,9 @@ public static void main(String[] args) {
 		System.out.println(binary(data,0));
 	}
 
-	public static int binary(int[] data,int index) {
-		if (index > data.length-2)
-			return 0;
-		else
-			return (data[index]|data[index+1])+binary(data, index+1);
-	}
+public static int binary(int[] data,int index) {
+	if (index > data.length-2)
+		return 0;
+	else
+		return (data[index]|data[index+1])+binary(data, index+1);
+}
