@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+		int n = 10;
+		int[] data = { 1, 0, 0, 1, 0, 0, 1, 0, 0, 0 };
+		System.out.println(binary(data,0));
+	}
+
+	public static int binary(int[] data,int index) {
+		if (index > data.length-2)
+			return 0;
+		else
+			return (data[index]|data[index+1])+binary(data, index+1);
+	}
