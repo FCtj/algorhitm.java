@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+		int n = 3;
+		int sum =0;
+		System.out.println(square_count(1,n,sum));
+	}
+	public static int square_count(int index, int n,int sum){
+		if(index>n)
+			return sum;
+		for(int i = 1;i<=index;i++){
+			sum+=i;
+		}
+		return square_count(index+1, n, sum);
+	}
