@@ -3,7 +3,6 @@ public class ex1 {
   static final int[] d = {5,6};
 	public static void main(String[] args) {
 		
-		System.out.println("taejun");
 		System.out.println(gidF(4,4));
 	}
   
