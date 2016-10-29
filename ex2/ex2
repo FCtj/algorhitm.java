@@ -1,0 +1,11 @@
+public static void main(String[] args) {
+		int n = 10;
+		int[] data = { 12, 1, 0, 3, 7, 4, 9, 5, 1, 15 };
+		System.out.println(meanP(data, 0, n));
+	}
+	private static int meanP(int[]data, int index, int end){
+		if(index<end)
+			return Math.min(data[index], meanP(data, index+1, end));
+		else
+			return data[index-1];
+	}
