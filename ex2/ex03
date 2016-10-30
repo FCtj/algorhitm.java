@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+		int n = 10;
+		String data = "abccba";
+		System.out.println(palindrom(data));
+	}
+	private static boolean palindrom(String data){
+		if(data.length()<1){
+			return true;
+		}else if(data.charAt(0)==data.charAt(data.length()-1)){
+			return true&palindrom(data.substring(1, data.length()-1));
+		}else {
+			return false;
+		}
+	}
