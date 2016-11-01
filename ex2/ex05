@@ -1,0 +1,91 @@
+static int[][] data = {{0,0, 0, 1, 0, 0, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 0},
+	{0,0,1,1,0,1,0,0},
+	{0,0,0,0,0,0,0,0},
+	{1,0,0,0,0,0,1,0},
+	{0,1,0,0,0,0,1,0},
+	{1,0,0,0,0,0,1,0},
+	{0,1,0,0,0,0,1,0}};
+	static int N = 8;
+	static int sR = 1;
+	static int sC = 3;
+	static int tR = 6;
+	static int tC = 7;
+	static int Visited = 2;
+	static final int EN = 0;
+	static final int ES = 1;
+	static final int SE = 2;
+	static final int SW = 3;
+	static final int WS = 4;
+	static final int WN = 5;
+	static final int NW = 6;
+	static final int NE = 7;
+	public static void main(String[] args) {
+		
+		System.out.println(findM(sR, sC));
+	}
+
+	private static boolean findM(int r, int c) {
+		if(r==tR&&c==tC)
+			return true;
+		else if(data[r][c]==Visited){
+			return false;
+		}else if(move(r, c,EN)||move(r, c,ES)||move(r, c,SE)||move(r, c,SW)||move(r, c,WS)||
+				move(r, c,WN)||move(r, c,NW)||move(r, c,NE)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	private static boolean move(int r, int c,int direction) {
+		switch (direction) {
+		case EN:
+			if(c+2>=N||r-1<0)return false;
+			else if((data[r][c+1]+data[r-1][c+2])==0){
+				data[r][c]=Visited;
+				return findM(r-1, c+2);}
+			return false;
+		case ES:
+			if(c+2>=N||r+1>=N)return false;
+			else if((data[r][c+1]+data[r+1][c+2])==0){
+				data[r][c]=Visited;
+				return findM(r+1, c+2);}
+			return false;
+		case SE:
+			if(r+2>=N||c+1>=N)return false;
+			else if((data[r+1][c]+data[r+2][c+1])==0){
+				data[r][c]=Visited;
+				return findM(r+2, c+1);}
+			return false;
+		case SW:
+			if(r+2>=N||c-1<0)return false;
+			else if((data[r+1][c]+data[r+2][c-1])==0){
+				data[r][c]=Visited;
+				return findM(r+2, c-1);}
+			return false;
+		case WS:
+			if(c-2<0||r+1>=N)return false;
+			else if((data[r][c-1]+data[r+1][c-2])==0){
+				data[r][c]=Visited;
+				return findM(r+1, c-2);}
+			return false;
+		case WN:
+			if(c-2<0||r-1<0)return false;
+			else if((data[r][c-1]+data[r-1][c-2])==0){
+				data[r][c]=Visited;
+				return findM(r-1, c-2);}
+			return false;
+		case NW:
+			if(r-2<0||c-1<0)return false;
+			else if((data[r-1][c]+data[r-2][c-1])==0){
+				data[r][c]=Visited;
+				return findM(r-22, c-1);}
+			return false;
+		default:
+			if(r-2<0||c+1>=N)return false;
+			else if((data[r-1][c]+data[r-2][c+1])==0){
+				data[r][c]=Visited;
+				return findM(r-2, c+1);}
+			return false;
+		}
+	}
